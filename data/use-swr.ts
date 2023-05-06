@@ -18,7 +18,8 @@ export const useSwr = ({ key, swrOptions }: useSwrProps) => {
   const config = {
     headers: {
       'X-Api-Key': process.env.NEXT_PUBLIC_API_KEY,
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
+      mode: 'cors'
     }
   };
   const url = `${process.env.NEXT_PUBLIC_API_ROOT}${key}`;
