@@ -4,8 +4,8 @@ import { Layout } from '@/components/layout';
 import { NewsList } from '@/components/news-list';
 import { useNewsData } from '@/utils/use-news-data';
 
-export default function NewsListPage() {
-  const { isLoading, news } = useNewsData();
+export default function ReadLaterPage() {
+  const { isLoading, news } = useNewsData(true);
 
   return (
     <Layout>

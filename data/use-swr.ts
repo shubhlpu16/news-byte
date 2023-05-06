@@ -17,8 +17,7 @@ interface useSwrProps {
 export const useSwr = ({ key, swrOptions }: useSwrProps) => {
   const config = {
     headers: {
-      'X-Api-Key': process.env.NEXT_PUBLIC_API_KEY,
-      'Content-Type': 'application/json'
+      'X-Api-Key': process.env.NEXT_PUBLIC_API_KEY
     }
   };
   const url = `${process.env.NEXT_PUBLIC_API_ROOT}${key}`;
