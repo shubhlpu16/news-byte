@@ -1,5 +1,4 @@
 import camelcaseKeys from 'camelcase-keys';
-import { useMemo } from 'react';
 import { SWRConfiguration } from 'swr';
 import useSWRImmutable from 'swr/immutable';
 
