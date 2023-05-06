@@ -29,16 +29,5 @@ export const useSwr = ({ key, swrOptions }: useSwrProps) => {
     swrOptions
   );
 
-  const returnValue = useMemo(
-    () => ({
-      data,
-      error,
-      isLoading,
-      isValidating,
-      mutate
-    }),
-    [data, error, isLoading, isValidating, mutate]
-  );
-
-  return returnValue;
+  return { data, error, isLoading, isValidating, mutate };
 };
