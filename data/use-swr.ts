@@ -1,4 +1,5 @@
 import camelcaseKeys from 'camelcase-keys';
+import { useMemo } from 'react';
 import { SWRConfiguration } from 'swr';
 import useSWRImmutable from 'swr/immutable';
 
@@ -16,7 +17,8 @@ interface useSwrProps {
 export const useSwr = ({ key, swrOptions }: useSwrProps) => {
   const config = {
     headers: {
-      'X-Api-Key': process.env.NEXT_PUBLIC_API_KEY
+      'X-Api-Key': process.env.NEXT_PUBLIC_API_KEY,
+      'Access-Control-Allow-Origin': '*'
     }
   };
   const url = `${process.env.NEXT_PUBLIC_API_ROOT}${key}`;
@@ -28,5 +30,16 @@ export const useSwr = ({ key, swrOptions }: useSwrProps) => {
     swrOptions
   );
 
-  return { data, error, isLoading, isValidating, mutate };
+  const returnValue = useMemo(
+    () => ({
+      data,
+      error,
+      isLoading,
+      isValidating,
+      mutate
+    }),
+    [data, error, isLoading, isValidating, mutate]
+  );
+
+  return returnValue;
 };

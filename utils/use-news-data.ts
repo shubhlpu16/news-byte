@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { NewsCardProps } from '@/components/news-card';
 import { useTopNews } from '@/data/news/use-top-news';
@@ -43,6 +43,6 @@ export const useNewsData = (isBookmarkedArticles?: boolean) => {
     [isClicked, setIsClicked]
   );
 
-  const news = getNewsData(newsData?.articles);
+  const news = useMemo(() => getNewsData(newsData?.articles), [getNewsData, newsData]);
   return { isLoading, news };
 };
