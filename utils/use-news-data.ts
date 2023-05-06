@@ -43,6 +43,6 @@ export const useNewsData = (isBookmarkedArticles?: boolean) => {
     [isClicked, setIsClicked]
   );
 
-  const news = useMemo(() => getNewsData(newsData?.articles), [getNewsData, newsData]);
+  const news = getNewsData(newsData?.articles);
   return { isLoading, news };
 };
