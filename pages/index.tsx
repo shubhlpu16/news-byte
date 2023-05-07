@@ -1,4 +1,4 @@
-import { Fade, Spinner, Flex } from '@chakra-ui/react';
+import { Fade, Spinner, Flex, VStack, Text, Heading } from '@chakra-ui/react';
 
 import { Layout } from '@/components/layout';
 import { NewsList } from '@/components/news-list';
@@ -17,9 +17,17 @@ export default function NewsListPage() {
 
   return (
     <Layout>
-      <Fade in={!isLoading}>
-        <NewsList news={news} />
-      </Fade>
+      {news.length === 0 && (
+        <VStack w='100%' h='100%' justifyContent='center' alignItems='center'>
+          <Text fontSize='xl'>No news found!</Text>
+        </VStack>
+      )}
+      {news.length > 0 && (
+        <Fade in={!isLoading}>
+          <Heading mb='36px'>Top Headlines</Heading>
+          <NewsList news={news} />
+        </Fade>
+      )}
     </Layout>
   );
 }

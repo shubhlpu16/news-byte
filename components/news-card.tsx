@@ -48,24 +48,29 @@ export const NewsCard = ({
           src={urlToImage}
           borderRadius='16px'
           alt='news-image'
+          fallbackSrc='https://raw.githubusercontent.com/koehlersimon/fallback/master/Resources/Public/Images/placeholder.jpg'
         />
         <VStack spacing='12px' alignItems='flex-start'>
           <Heading>{title}</Heading>
           <Text fontWeight='300'>{description}</Text>
-          <Flex gap='4px'>
-            <Text>Author: </Text>
-            <Text
-              as='a'
-              fontWeight='500'
-              dangerouslySetInnerHTML={{ __html: author }}
-              pointerEvents='none'
-            />
-          </Flex>
+          {author && (
+            <Flex gap='4px'>
+              <Text>Author: </Text>
+              <Text
+                as='a'
+                fontWeight='500'
+                dangerouslySetInnerHTML={{ __html: author }}
+                pointerEvents='none'
+              />
+            </Flex>
+          )}
 
           <Text fontWeight='500'>Source: {source?.name}</Text>
-          <Text fontWeight='500'>
-            Published at: {format(parseISO(publishedAt), 'MMM dd, yyyy')}
-          </Text>
+          {publishedAt && (
+            <Text fontWeight='500'>
+              Published at: {format(parseISO(publishedAt), 'MMM dd, yyyy')}
+            </Text>
+          )}
         </VStack>
         <IconButton
           bg='transparent'
