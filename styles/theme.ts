@@ -1,5 +1,4 @@
 import { theme as ChakraTheme, extendTheme, type Theme } from '@chakra-ui/react';
-// import { colors } from './colors';
 
 export const theme: Partial<Theme> = extendTheme({
   ...ChakraTheme,
@@ -10,7 +9,6 @@ export const theme: Partial<Theme> = extendTheme({
     xl: '1024px',
     '2xl': '1280px'
   },
-  //   colors,
   styles: {
     global: {
       body: {
